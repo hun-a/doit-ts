@@ -1,0 +1,30 @@
+{
+  "name": "ch12-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src",
+    "build": "tsc && ts-node dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chance": "^1.1.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/mkdirp": "^1.0.1",
+    "@types/mongodb": "^3.5.25",
+    "@types/node": "^14.0.14",
+    "@types/rimraf": "^3.0.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "chance": "^1.1.6",
+    "dotenv": "^8.2.0",
+    "mkdirp": "^1.0.4",
+    "mongodb": "^3.5.9",
+    "rimraf": "^3.0.2"
+  }
+}
