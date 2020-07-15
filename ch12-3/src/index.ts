@@ -1,11 +1,7 @@
-import express from 'express'
-const app = express()
-const port = 4000
+import {connect} from './mongodb/connect'
+import {runServer} from './runServer'
 
-app
-  .get('/', (req, res) => res.json({message: 'Hello world!'}))
-  .get('/users/:skip/:limit', (req, res) => {
-    const {skip, limit} = req.params
-    res.json({skip, limit})
-  })
-  .listen(port, () => console.log(`http://localhost:${port} started...`))
+connect()
+  .then(connection => connection.db('test'))
+  .then(runServer)
+  .catch((e: Error) => console.log(e.message))
