@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {IUser} from './models/IUser'
 import {getDataPromise} from './getDataPromise'
 
 const App: React.FC = () => {
-  getDataPromise((users: IUser[]) => console.log('users', users))(0, 1)
+  const [users, setUsers] = useState<IUser[]>([])
+  useEffect(() => {
+    getDataPromise((receivedUsers: IUser[]) =>
+      setUsers([...users, ...receivedUsers]))(0, 1)
+  }, [])
   return (
-    <div className="App">Please open console window!</div> 
+  <div className="App">{JSON.stringify(users)}</div> 
   )
 }
 
