@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {IUser} from './models/IUser'
 import {getDataPromise} from './getDataPromise'
+import {Card} from './components/Card'
+import './App.css'
 
 const App: React.FC = () => {
   const limit = 1
@@ -12,12 +14,12 @@ const App: React.FC = () => {
       setUsers([...users, ...receivedUsers])
     })(skip, limit)
   }
-  useEffect(() => onClick, [])
+  useEffect(onClick, [])
+
   return (
-    <div className="App">
-      <p><button onClick={onClick}>more data...</button></p>
-      <p>{JSON.stringify(users)}</p>
-    </div> 
+    <div className="App">{
+      users.map((user: IUser, key: number) => (<Card click={onClick} user={user} key={key.toString()} />))
+    }</div>
   )
 }
 
